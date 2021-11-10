@@ -1,0 +1,10 @@
+.bgImage {
+  background-image: url(../../../images/pool.jpg);
+  height: 550px;
+  background-position: center;
+  background-size: cover;
+  margin-top: 15px;
+}
+.textBg {
+  background-color: rgba(2, 2, 46, 0.39);
+}
