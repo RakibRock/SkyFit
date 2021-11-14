@@ -15,11 +15,34 @@ const Purchase = () => {
   //since we are loading a single product, it is an object not an array
   const [singleProduct, setSingleProduct] = useState({});
 
+  const initialInfo = {
+    userName: user.displayName,
+    email: user.email,
+    userAddress: "",
+    userPhone: "",
+  };
+  const [orderInfo, setOrderInfo] = useState(initialInfo);
+
+  const handleOnBlur = (e) => {
+    const field = e.target.name;
+    const value = e.target.value;
+    const newInfo = { ...orderInfo };
+    newInfo[field] = value;
+
+    setOrderInfo(newInfo);
+  };
+
   const { id, name } = useParams();
-  console.log("hi purchase");
-  console.log("id:", id, "name:", name);
 
   const handleFormSubmit = (e) => {
+    //collect data
+    const order = {
+      ...orderInfo,
+      productName: singleProduct.name,
+      productPrice: singleProduct.price,
+    };
+    //send to the server
+    console.log(order);
     e.preventDefault();
   };
 
@@ -49,26 +72,26 @@ const Purchase = () => {
             </Typography>
             <TextField
               sx={{ m: 1 }}
-              disabled
               id="outlined-disabled"
-              label="Disabled"
+              label="Your Name"
               name="userName"
+              onBlur={handleOnBlur}
               defaultValue={user.displayName}
             />
             <TextField
               sx={{ m: 1 }}
-              disabled
               id="outlined-disabled"
-              label="Disabled"
+              label="Your Email"
               name="email"
+              onBlur={handleOnBlur}
               defaultValue={user.email}
             />
             <br />
             <TextField
-              sx={{ m: 1 }}
               disabled
+              sx={{ m: 1 }}
               id="outlined-disabled"
-              label="Disabled"
+              label={singleProduct.name}
               name="productName"
               defaultValue={singleProduct.name}
             />
@@ -86,6 +109,7 @@ const Purchase = () => {
               id="outlined-disabled"
               label="Address"
               name="userAddress"
+              onBlur={handleOnBlur}
               defaultValue=""
             />
             <TextField
@@ -93,6 +117,7 @@ const Purchase = () => {
               id="outlined-disabled"
               label="Phone"
               name="userPhone"
+              onBlur={handleOnBlur}
               defaultValue=""
             />
             <br />
