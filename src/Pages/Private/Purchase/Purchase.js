@@ -1,4 +1,4 @@
-import { Grid, Typography } from "@mui/material";
+import { Alert, Grid, Typography } from "@mui/material";
 import ProductCard from "../../../components/Card/ProductCard";
 import Navigation from "../../Home/Navigation/Navigation";
 import React, { useEffect, useState } from "react";
@@ -14,6 +14,9 @@ const Purchase = () => {
 
   //since we are loading a single product, it is an object not an array
   const [singleProduct, setSingleProduct] = useState({});
+
+  //State for booking success
+  const [orderSuccess, setOrderSuccess] = useState(false);
 
   const initialInfo = {
     userName: user.displayName,
@@ -42,7 +45,21 @@ const Purchase = () => {
       productPrice: singleProduct.price,
     };
     //send to the server
-    console.log(order);
+    fetch("http://localhost:5000/orders", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(order),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          alert("Your order has been made");
+          setOrderSuccess(true);
+        }
+        console.log(data);
+      });
     e.preventDefault();
   };
 
@@ -123,6 +140,11 @@ const Purchase = () => {
             <br />
 
             <button type="submit">Place Order</button>
+            {orderSuccess && (
+              <Alert severity="success">
+                Product Booking successfull. See your orders page for details.
+              </Alert>
+            )}
           </form>
         </Grid>
       </Grid>
