@@ -21,9 +21,15 @@ const Products = () => {
       <br />
       <Container>
         <Grid container spacing={2}>
-          {products.map((product) => (
-            <ProductCard product={product} key={product._id}></ProductCard>
-          ))}
+          {/* applying filter method strategy to display 6 products on the homepage */}
+          {products
+            .filter((product) => product.price <= 400)
+            .map((filteredProduct) => (
+              <ProductCard
+                product={filteredProduct}
+                key={filteredProduct._id}
+              ></ProductCard>
+            ))}
         </Grid>
       </Container>
     </div>

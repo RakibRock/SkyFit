@@ -6,13 +6,14 @@ import Typography from "@mui/material/Typography";
 import { Button, CardActionArea, CardActions, Grid } from "@mui/material";
 import "./ProductCard.css";
 import { Link } from "react-router-dom";
+import Purchase from "../../Pages/Private/Purchase/Purchase";
 
 const ProductCard = (props) => {
-  const { name, description, image } = props.product;
+  const { name, description, image, price, _id } = props.product || {};
 
   return (
     <Grid item xs={8} md={4}>
-      <Card sx={{ height: "500px" }}>
+      <Card sx={{ height: "550px" }}>
         <CardActionArea>
           <CardMedia
             component="img"
@@ -27,12 +28,16 @@ const ProductCard = (props) => {
             <Typography variant="body2" color="text.secondary">
               {description}
             </Typography>
+            <Typography variant="h5" color="text.secondary">
+              ${price}
+            </Typography>
           </CardContent>
         </CardActionArea>
 
-        <Link className="purchase" to="/purchase">
-          Purchase
+        <Link className="purchase" to={`/purchase/${_id}`}>
+          <Button>Purchase</Button>
         </Link>
+        {/* <Purchase _id={_id}></Purchase> */}
       </Card>
     </Grid>
   );

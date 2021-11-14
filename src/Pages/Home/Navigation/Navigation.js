@@ -12,15 +12,19 @@ import FormGroup from "@mui/material/FormGroup";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import css from "./Navigation.css";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
+import { Button } from "@mui/material";
 
 const Navigation = () => {
   const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const { user, logOut } = useAuth();
 
   const handleChange = (event) => {
     setAuth(event.target.checked);
   };
+  console.log(user);
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
@@ -56,6 +60,31 @@ const Navigation = () => {
                 Explore
               </Link>
             </Typography>
+            {user?.email ? (
+              <Box>
+                <Link
+                  style={{
+                    textDecoration: "none",
+                    color: "white",
+                    marginLeft: "5px",
+                    marginRight: "5px",
+                  }}
+                  to="/dashboard"
+                >
+                  Dashboard
+                </Link>
+                <Typography variant="body1">{user.displayName}</Typography>
+                <Button onClick={logOut} color="inherit" variant="contained">
+                  Log Out
+                </Button>
+              </Box>
+            ) : (
+              <Link style={{ textDecoration: "none" }} to="/login">
+                <Button color="inherit" variant="contained">
+                  Login
+                </Button>
+              </Link>
+            )}
             {auth && (
               <div>
                 <IconButton
@@ -85,7 +114,12 @@ const Navigation = () => {
                   onClose={handleClose}
                 >
                   <MenuItem onClick={handleClose}>Profile</MenuItem>
-                  <MenuItem onClick={handleClose}>My account</MenuItem>
+                  <Link className="link2" to="/login">
+                    <MenuItem onClick={handleClose}>LogIn</MenuItem>
+                  </Link>
+                  <Link className="link2" to="/register">
+                    <MenuItem>Register</MenuItem>
+                  </Link>
                 </Menu>
               </div>
             )}

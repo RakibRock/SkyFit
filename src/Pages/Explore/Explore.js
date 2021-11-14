@@ -14,9 +14,9 @@ const Explore = () => {
   }, []);
 
   return (
-    <div className="products-bg">
+    <div className="">
       <Navigation></Navigation>
-      <Typography sx={{ padding: "50px", color: "white" }} variant="h3">
+      <Typography sx={{ padding: "50px", fontWeight: "bold" }} variant="h3">
         Explore Our Drones Collection
       </Typography>
       <Container>
