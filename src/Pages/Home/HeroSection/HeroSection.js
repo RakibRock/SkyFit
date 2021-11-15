@@ -1,5 +1,6 @@
 import { Button, Grid, Typography } from "@mui/material";
 import React from "react";
+import { Link } from "react-router-dom";
 import css from "./HeroSection.css";
 
 const HeroSection = () => {
@@ -35,9 +36,11 @@ const HeroSection = () => {
             We provide high quality drones with top notch battery life.
           </Typography>
 
-          <Button sx={{ mt: 1 }} variant="contained">
-            Get Started
-          </Button>
+          <Link to="/explore">
+            <Button sx={{ mt: 1 }} variant="contained">
+              View Drones
+            </Button>
+          </Link>
         </Grid>
         <Grid item xs={4} md={6}></Grid>
       </Grid>

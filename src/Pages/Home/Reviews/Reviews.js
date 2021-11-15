@@ -8,17 +8,17 @@ const Reviews = () => {
   console.log(userReviews);
 
   useEffect(() => {
-    fetch("http://localhost:5000/reviews")
+    fetch("https://hidden-sands-86825.herokuapp.com/reviews")
       .then((res) => res.json())
       .then((data) => setUserReviews(data));
   }, []);
 
   return (
-    <Container sx={{ padding: "20px" }}>
+    <Container sx={{ padding: "20px 0 200px 0" }}>
       <Grid container spacing={2}>
         <Grid item xs={12} md={12}>
           <Typography sx={{ padding: "50px" }} variant="h4">
-            Excellent Customer Support Reviews
+            What Our Customers Say
           </Typography>
         </Grid>
 

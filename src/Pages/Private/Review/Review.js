@@ -42,7 +42,7 @@ const Review = (props) => {
       ...userReviews,
     };
     //send to server
-    fetch("http://localhost:5000/reviews", {
+    fetch("https://hidden-sands-86825.herokuapp.com/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",

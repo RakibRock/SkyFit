@@ -21,7 +21,14 @@ const ReviewCard = ({ userReview }) => {
   return (
     <Box>
       <Grid sx={{ margin: "auto" }} item xs={12} md={6}>
-        <Card sx={{ minWidth: 320, m: 1 }}>
+        <Card
+          sx={{
+            minWidth: 320,
+            m: 1,
+            backgroundColor: "#30BCED",
+            color: "white",
+          }}
+        >
           <CardContent>
             <Typography
               sx={{ fontSize: 14 }}

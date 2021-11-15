@@ -45,7 +45,7 @@ const Purchase = () => {
       productPrice: singleProduct.price,
     };
     //send to the server
-    fetch("http://localhost:5000/orders", {
+    fetch("https://hidden-sands-86825.herokuapp.com/orders", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -66,7 +66,7 @@ const Purchase = () => {
   //Using useEffect to load the data of a single product when the purchase button is clicked
   useEffect(() => {
     //getting the dynamic url
-    const url = `http://localhost:5000/products/${id}`;
+    const url = `https://hidden-sands-86825.herokuapp.com/products/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setSingleProduct(data));

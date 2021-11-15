@@ -58,6 +58,7 @@ const Navigation = () => {
                   style={{
                     marginLeft: "5px",
                     marginRight: "5px",
+                    fontSize: "20px",
                   }}
                   to="/dashboard"
                 >

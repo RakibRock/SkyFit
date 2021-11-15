@@ -13,7 +13,13 @@ const ProductCard = (props) => {
 
   return (
     <Grid item xs={12} md={4}>
-      <Card sx={{ height: "550px" }}>
+      <Card
+        sx={{
+          height: "550px",
+          border: "1px solid #30BCED",
+          borderRadius: "7px",
+        }}
+      >
         <CardActionArea>
           <CardMedia
             component="img"

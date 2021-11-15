@@ -3,12 +3,13 @@ import React, { useEffect, useState } from "react";
 import ProductCard from "../../components/Card/ProductCard";
 
 import Navigation from "../Home/Navigation/Navigation";
+import Footer from "../Shared/Footer/Footer";
 
 const Explore = () => {
   const [allProducts, setAllProducts] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/allProducts")
+    fetch("https://hidden-sands-86825.herokuapp.com/allProducts")
       .then((res) => res.json())
       .then((data) => setAllProducts(data));
   }, []);
@@ -26,6 +27,7 @@ const Explore = () => {
           ))}
         </Grid>
       </Container>
+      <Footer></Footer>
     </div>
   );
 };
