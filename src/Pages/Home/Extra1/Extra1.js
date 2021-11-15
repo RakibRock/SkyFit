@@ -1,5 +1,6 @@
 import { Container, Grid, Typography } from "@mui/material";
 import React from "react";
+import "./Extra.css";
 
 const Extra1 = () => {
   return (
@@ -7,7 +8,7 @@ const Extra1 = () => {
       <Container sx={{ color: "white" }}>
         <Typography
           sx={{ paddingTop: "50px", fontWeight: "bold" }}
-          variant="h3"
+          variant="h4"
           gutterBottom
           component="div"
         >
@@ -18,16 +19,17 @@ const Extra1 = () => {
           <Grid
             sx={{ display: "flex", alignItems: "center" }}
             item
-            xs={6}
+            xs={12}
             md={5}
           >
             <Container
+              className="arial-photo"
               sx={{
                 marginRight: -8,
                 textAlign: "left",
               }}
             >
-              <Typography variant="h2" gutterBottom component="div">
+              <Typography variant="h4" gutterBottom component="div">
                 AERIAL PHOTOGRAPHY
               </Typography>
               <Typography variant="p" gutterBottom component="div">
@@ -37,20 +39,20 @@ const Extra1 = () => {
               </Typography>
             </Container>
           </Grid>
-          <Grid item xs={6} md={7}>
+          <Grid item xs={12} md={7}>
             <img src="https://i.ibb.co/ZLQZGwn/1.png" alt="" />
           </Grid>
-          <Grid sx={{ marginLeft: -2, marginTop: -2 }} item xs={6} md={7}>
+          <Grid sx={{ marginLeft: -2, marginTop: -2 }} item xs={12} md={7}>
             <img src="https://i.ibb.co/BLF7r20/2.png" alt="" />
           </Grid>
           <Grid
             sx={{ display: "flex", alignItems: "center" }}
             item
-            xs={6}
+            xs={12}
             md={5}
           >
             <Container sx={{ textAlign: "right", marginLeft: -5 }}>
-              <Typography variant="h2" gutterBottom component="div">
+              <Typography variant="h5" gutterBottom component="div">
                 HIGH RESOLUTION
               </Typography>
               <Typography variant="p" gutterBottom component="div">
@@ -63,11 +65,11 @@ const Extra1 = () => {
           <Grid
             sx={{ display: "flex", alignItems: "center" }}
             item
-            xs={6}
+            xs={12}
             md={6}
           >
             <Container sx={{ textAlign: "left", marginRight: -5 }}>
-              <Typography variant="h2" gutterBottom component="div">
+              <Typography variant="h5" gutterBottom component="div">
                 POWERFUL & PORTABLE
               </Typography>
               <Typography variant="p" gutterBottom component="div">
@@ -77,7 +79,7 @@ const Extra1 = () => {
               </Typography>
             </Container>
           </Grid>
-          <Grid sx={{ marginLeft: -6, marginTop: -2 }} item xs={6} md={6}>
+          <Grid sx={{ marginLeft: -6, marginTop: -2 }} item xs={12} md={6}>
             <img src="https://i.ibb.co/DW6vXSF/3.png" alt="" />
           </Grid>
         </Grid>

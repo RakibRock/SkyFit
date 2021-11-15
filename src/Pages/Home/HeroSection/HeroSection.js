@@ -16,7 +16,6 @@ const HeroSection = () => {
           className="textBg"
           sx={{
             textAlign: "left",
-            margin: "100px",
             padding: "",
           }}
           item
@@ -27,7 +26,7 @@ const HeroSection = () => {
             AERIAL PHOTOGRAPHY
           </Typography>
 
-          <Typography sx={{ mb: 2 }} variant="h3">
+          <Typography sx={{ mb: 2 }} variant="h4">
             There Are Many <br /> Great Ways To <br /> Use Drones
           </Typography>
 

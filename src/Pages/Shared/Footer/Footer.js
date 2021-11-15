@@ -7,24 +7,15 @@ const Footer = () => {
   return (
     <div className="footer">
       <Grid container spacing={2}>
-        <Grid item xs={6} md={4}>
+        <Grid item xs={12} md={4}>
           <Typography variant="h4">SkyFit</Typography>
           <Typography variant="bodypara">
             We are the best drone sellers in the country.
           </Typography>
         </Grid>
-        <Grid item xs={6} md={4}>
-          <ul>
-            <Link to="">1</Link>
-            <br />
-            <Link to="">1</Link>
-            <br />
-            <Link to="">1</Link>
-            <br />
-          </ul>
-        </Grid>
+        <Grid item xs={6} md={4}></Grid>
 
-        <Grid item xs={6} md={4}>
+        <Grid item xs={12} md={4}>
           <Typography variant="h5">contact</Typography>
           <Typography variant="bodypara">email: skyfit@gmail.com</Typography>
           <br />

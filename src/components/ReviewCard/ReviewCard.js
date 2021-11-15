@@ -20,8 +20,8 @@ const ReviewCard = ({ userReview }) => {
   </Box>;
   return (
     <Box>
-      <Grid item xs={6} md={6}>
-        <Card sx={{ minWidth: 275, m: 1 }}>
+      <Grid sx={{ margin: "auto" }} item xs={12} md={6}>
+        <Card sx={{ minWidth: 320, m: 1 }}>
           <CardContent>
             <Typography
               sx={{ fontSize: 14 }}

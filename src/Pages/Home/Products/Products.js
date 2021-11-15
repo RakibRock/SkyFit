@@ -13,7 +13,7 @@ const Products = () => {
   }, []);
   return (
     <div className=" marginbt">
-      <Typography sx={{ paddingTop: "70px", fontWeight: "bold" }} variant="h3">
+      <Typography sx={{ paddingTop: "70px", fontWeight: "bold" }} variant="h4">
         Our Products
       </Typography>
       <hr width="120px" />

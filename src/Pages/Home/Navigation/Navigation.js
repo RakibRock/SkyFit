@@ -38,15 +38,6 @@ const Navigation = () => {
       <Box sx={{ flexGrow: 1 }}>
         <AppBar sx={{ bgcolor: "black" }} position="static">
           <Toolbar>
-            <IconButton
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              sx={{ mr: 2 }}
-            >
-              <MenuIcon />
-            </IconButton>
             <Typography variant="h4" component="div" sx={{ flexGrow: 1 }}>
               SkyFit
             </Typography>
@@ -63,9 +54,8 @@ const Navigation = () => {
             {user?.email ? (
               <Box>
                 <Link
+                  className="link"
                   style={{
-                    textDecoration: "none",
-                    color: "white",
                     marginLeft: "5px",
                     marginRight: "5px",
                   }}
@@ -73,8 +63,8 @@ const Navigation = () => {
                 >
                   Dashboard
                 </Link>
-                <Typography variant="body1">{user.displayName}</Typography>
-                <Button onClick={logOut} color="inherit" variant="contained">
+                {/* <Typography variant="body1">{user.displayName}</Typography> */}
+                <Button onClick={logOut} color="" variant="contained">
                   Log Out
                 </Button>
               </Box>

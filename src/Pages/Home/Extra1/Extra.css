@@ -1,0 +1,14 @@
+@media only screen and (max-width: 425px) {
+  img {
+    width: 80%;
+  }
+  h2 {
+    font-size: 14px;
+  }
+  .arial-photo {
+    margin-left: 0;
+  }
+  .css-i1hrn3-MuiTypography-root {
+    font-size: 10px;
+  }
+}

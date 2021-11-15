@@ -12,7 +12,7 @@ const ProductCard = (props) => {
   const { name, description, image, price, _id } = props.product || {};
 
   return (
-    <Grid item xs={8} md={4}>
+    <Grid item xs={12} md={4}>
       <Card sx={{ height: "550px" }}>
         <CardActionArea>
           <CardMedia

@@ -4,6 +4,7 @@ import {
   CssBaseline,
   Divider,
   Drawer,
+  Grid,
   IconButton,
   Toolbar,
   Typography,
@@ -171,42 +172,44 @@ const MyOrders = (props) => {
         }}
       >
         <Toolbar />
-        <Typography variant="h3">orders {orders.length}</Typography>
-        <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 650 }} aria-label="simple table">
-            <TableHead>
-              <TableRow>
-                <TableCell>Product Name</TableCell>
-                <TableCell align="right">Price</TableCell>
-                <TableCell align="center">Actions</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {orders.map((order) => (
-                <TableRow
-                  key={order._id}
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                >
-                  <TableCell component="th" scope="row">
-                    {order.productName}
-                  </TableCell>
-                  <TableCell align="right">{order.productPrice}</TableCell>
-                  <TableCell align="center">
-                    <Button
-                      onClick={() => handleDelete(order._id)}
-                      variant="contained"
-                    >
-                      Cancel
-                    </Button>
-                  </TableCell>
-                  <TableCell align="right"></TableCell>
-                  <TableCell align="right"></TableCell>
+        <Grid item xs={12} md={12}>
+          <Typography variant="h3">orders {orders.length}</Typography>
+          <TableContainer component={Paper}>
+            <Table aria-label="simple table">
+              <TableHead>
+                <TableRow>
+                  <TableCell>Product Name</TableCell>
+                  <TableCell align="right">Price</TableCell>
+                  <TableCell align="center">Actions</TableCell>
                 </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
-        <Typography paragraph></Typography>
+              </TableHead>
+              <TableBody>
+                {orders.map((order) => (
+                  <TableRow
+                    key={order._id}
+                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  >
+                    <TableCell component="th" scope="row">
+                      {order.productName}
+                    </TableCell>
+                    <TableCell align="right">{order.productPrice}</TableCell>
+                    <TableCell align="center">
+                      <Button
+                        onClick={() => handleDelete(order._id)}
+                        variant="contained"
+                      >
+                        Cancel
+                      </Button>
+                    </TableCell>
+                    <TableCell align="right"></TableCell>
+                    <TableCell align="right"></TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+          <Typography paragraph></Typography>
+        </Grid>
       </Box>
     </Box>
   );

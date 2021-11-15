@@ -19,12 +19,24 @@ import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
 import Navigation from "../Home/Navigation/Navigation";
 import useAuth from "../../hooks/useAuth";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  useParams,
+  useRouteMatch,
+} from "react-router-dom";
+import Pay from "../Private/Pay/Pay";
+import MyOrders from "../Private/MyOrders/MyOrders";
+import Review from "../Private/Review/Review";
 
 const drawerWidth = 240;
 const Dashboard = (props) => {
   const { logOut } = useAuth();
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+
+  let { path, url } = useRouteMatch();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -38,7 +50,23 @@ const Dashboard = (props) => {
         <Button>Back To Home</Button>
       </Link>
       <Divider />
-      <Link to="/pay">
+
+      <Link to={`${url}/pay`}>
+        <Button>Pay</Button>
+      </Link>
+      <Divider />
+
+      <Link to={`${url}/myOrders`}>
+        <Button>My Orders</Button>
+      </Link>
+      <Divider />
+
+      <Link to={`${url}/review`}>
+        <Button>Review</Button>
+      </Link>
+      <Divider />
+      {/* /////// */}
+      {/* <Link to="/pay">
         <Button>Pay</Button>
       </Link>
       <Divider />
@@ -50,7 +78,7 @@ const Dashboard = (props) => {
       <Link to="/review">
         <Button>Review</Button>
       </Link>
-      <Divider />
+      <Divider /> */}
 
       <Link to="/">
         <Button
@@ -141,8 +169,18 @@ const Dashboard = (props) => {
         }}
       >
         <Toolbar />
-        <Typography variant="h3">Welcome to your Dashboard</Typography>
-        <Typography paragraph></Typography>
+        <Switch>
+          <Route exact path={path}></Route>
+          <Route path={`${path}/pay`}>
+            <Pay></Pay>
+          </Route>
+          <Route path={`${path}/myOrders`}>
+            <MyOrders></MyOrders>
+          </Route>
+          <Route path={`${path}/review`}>
+            <Review></Review>
+          </Route>
+        </Switch>
       </Box>
     </Box>
   );
