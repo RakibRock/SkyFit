@@ -9,17 +9,53 @@ import {
   Typography,
 } from "@mui/material";
 import { Box } from "@mui/system";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Navigation from "../../Home/Navigation/Navigation";
 import MenuIcon from "@mui/icons-material/Menu";
 import useAuth from "../../../hooks/useAuth";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
 
 const MyOrders = (props) => {
-  const { logOut } = useAuth();
+  const { logOut, user } = useAuth();
   const drawerWidth = 240;
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  //state for displaying orders
+  const [orders, setOrders] = useState([]);
+
+  useEffect(() => {
+    const url = `http://localhost:5000/orders?email=${user.email}`;
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        setOrders(data);
+      });
+  }, []);
+
+  const handleDelete = (id) => {
+    // const proceed = window.confirm("Are you sure you want to delete?");
+    // console.log(proceed);
+
+    const url = `http://localhost:5000/orders/${id}`;
+    fetch(url, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.deletedCount) {
+          alert("Deleted");
+          const remaining = orders.filter((order) => order._id !== id);
+          setOrders(remaining);
+        }
+      });
+  };
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -135,7 +171,41 @@ const MyOrders = (props) => {
         }}
       >
         <Toolbar />
-        <Typography variant="h3">orders</Typography>
+        <Typography variant="h3">orders {orders.length}</Typography>
+        <TableContainer component={Paper}>
+          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell>Product Name</TableCell>
+                <TableCell align="right">Price</TableCell>
+                <TableCell align="center">Actions</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {orders.map((order) => (
+                <TableRow
+                  key={order._id}
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                >
+                  <TableCell component="th" scope="row">
+                    {order.productName}
+                  </TableCell>
+                  <TableCell align="right">{order.productPrice}</TableCell>
+                  <TableCell align="center">
+                    <Button
+                      onClick={() => handleDelete(order._id)}
+                      variant="contained"
+                    >
+                      Cancel
+                    </Button>
+                  </TableCell>
+                  <TableCell align="right"></TableCell>
+                  <TableCell align="right"></TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
         <Typography paragraph></Typography>
       </Box>
     </Box>

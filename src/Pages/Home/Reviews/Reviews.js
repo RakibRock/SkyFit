@@ -1,22 +1,32 @@
-import { Container as div, Grid, Typography } from "@mui/material";
-import React from "react";
+import { Container, Container as div, Grid, Typography } from "@mui/material";
+import React, { useEffect, useState } from "react";
 import ReviewCard from "../../../components/ReviewCard/ReviewCard";
 import "./Review.css";
 
 const Reviews = () => {
+  const [userReviews, setUserReviews] = useState([]);
+  console.log(userReviews);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/reviews")
+      .then((res) => res.json())
+      .then((data) => setUserReviews(data));
+  }, []);
+
   return (
-    <div>
+    <Container sx={{ padding: "20px" }}>
       <Grid container spacing={2}>
         <Grid item xs={6} md={12}>
-          <Typography sx={{ padding: "100px" }} variant="h3">
+          <Typography sx={{ padding: "50px" }} variant="h3">
             Excellent Customer Support Reviews
           </Typography>
         </Grid>
-        <Grid item xs={6} md={3}>
-          <ReviewCard></ReviewCard>
-        </Grid>
+
+        {userReviews.map((userReview) => (
+          <ReviewCard userReview={userReview}></ReviewCard>
+        ))}
       </Grid>
-    </div>
+    </Container>
   );
 };
 

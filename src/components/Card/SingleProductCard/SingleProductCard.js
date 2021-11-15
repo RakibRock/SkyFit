@@ -21,18 +21,10 @@ const SingleProductCard = (props) => {
               {description}
             </Typography>
           </CardContent>
-          <CardMedia
-            component="img"
-            height="100%"
-            image={image}
-            alt="green iguana"
-          />
+          <CardMedia component="img" height="100%" image={image} alt="" />
         </CardActionArea>
         <CardActions sx={{ justifyContent: "center", flexDirection: "column" }}>
           <Typography variant="h3">${price}</Typography>
-          <Button variant="contained" sx={{ mt: 1 }}>
-            Place Order
-          </Button>
         </CardActions>
       </Card>
     </Container>
