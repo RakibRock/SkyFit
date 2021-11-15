@@ -5,7 +5,7 @@ This is a drone website. They sell various types of high performance drones.
 ## Website Features
 
 * Normal users will be able to browse through the website and the products.
-* Users will have to register as a user to purchase any drones and get to see the details ot the products
+* Users will have to register as a user to purchase any drones and get to see the details of the products
 * Users will be able to place an order for the product of their choice
 * Users will be able to see their orders from the orders page in the dashboard
 * There are two types of users, admin and not admin
