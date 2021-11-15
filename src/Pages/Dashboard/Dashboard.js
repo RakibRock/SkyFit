@@ -33,7 +33,7 @@ import MakeAdmin from "../Private/Admin/MakeAdmin/MakeAdmin";
 
 const drawerWidth = 240;
 const Dashboard = (props) => {
-  const { logOut } = useAuth();
+  const { logOut, admin } = useAuth();
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -52,19 +52,43 @@ const Dashboard = (props) => {
       </Link>
       <Divider />
 
-      <Link to={`${url}/pay`}>
-        <Button>Pay</Button>
-      </Link>
-      <Divider />
+      {!admin && (
+        <Box>
+          <Link to={`${url}/pay`}>
+            <Button>Pay</Button>
+          </Link>
+          <Divider />
 
-      <Link to={`${url}/myOrders`}>
-        <Button>My Orders</Button>
-      </Link>
-      <Divider />
+          <Link to={`${url}/myOrders`}>
+            <Button>My Orders</Button>
+          </Link>
+          <Divider />
 
-      <Link to={`${url}/review`}>
-        <Button>Review</Button>
-      </Link>
+          <Link to={`${url}/review`}>
+            <Button>Review</Button>
+          </Link>
+        </Box>
+      )}
+
+      {admin && (
+        <Box>
+          <Link to={`${url}/makeAdmin`}>
+            <Button>Make Admin</Button>
+          </Link>
+          <Divider />
+          <Link to={`${url}/manageOrders`}>
+            <Button>Manage All Orders</Button>
+          </Link>
+          <Divider />
+          <Link to={`${url}/manageProducts`}>
+            <Button>Manage All Products</Button>
+          </Link>
+          <Divider />
+          <Link to={`${url}/addProduct`}>
+            <Button>Add Product</Button>
+          </Link>
+        </Box>
+      )}
       <Divider />
       {/* /////// */}
       {/* <Link to="/pay">
@@ -181,8 +205,10 @@ const Dashboard = (props) => {
           <Route path={`${path}/review`}>
             <Review></Review>
           </Route>
+          <Route path={`${path}/makeAdmin`}>
+            <MakeAdmin></MakeAdmin>
+          </Route>
         </Switch>
-        <MakeAdmin></MakeAdmin>
       </Box>
     </Box>
   );
