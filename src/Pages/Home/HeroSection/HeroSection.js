@@ -16,7 +16,7 @@ const HeroSection = () => {
           className="textBg"
           sx={{
             textAlign: "left",
-            padding: "",
+            margin: "50px",
           }}
           item
           xs={8}
@@ -27,10 +27,17 @@ const HeroSection = () => {
           </Typography>
 
           <Typography sx={{ mb: 2 }} variant="h4">
-            There Are Many <br /> Great Ways To <br /> Use Drones
+            There Are Many Great Ways
+            <br /> To Use Drones. <br />
+          </Typography>
+          <Typography variant="parabody">
+            {" "}
+            We provide high quality drones with top notch battery life.
           </Typography>
 
-          <Button variant="contained">Get Started</Button>
+          <Button sx={{ mt: 1 }} variant="contained">
+            Get Started
+          </Button>
         </Grid>
         <Grid item xs={4} md={6}></Grid>
       </Grid>

@@ -29,6 +29,7 @@ import {
 import Pay from "../Private/Pay/Pay";
 import MyOrders from "../Private/MyOrders/MyOrders";
 import Review from "../Private/Review/Review";
+import MakeAdmin from "../Private/Admin/MakeAdmin/MakeAdmin";
 
 const drawerWidth = 240;
 const Dashboard = (props) => {
@@ -181,6 +182,7 @@ const Dashboard = (props) => {
             <Review></Review>
           </Route>
         </Switch>
+        <MakeAdmin></MakeAdmin>
       </Box>
     </Box>
   );
