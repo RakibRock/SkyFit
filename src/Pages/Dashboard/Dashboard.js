@@ -16,7 +16,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
-import { Button } from "@mui/material";
+import { Button, Grid } from "@mui/material";
 import Navigation from "../Home/Navigation/Navigation";
 import useAuth from "../../hooks/useAuth";
 import {
@@ -30,10 +30,16 @@ import Pay from "../Private/Pay/Pay";
 import MyOrders from "../Private/MyOrders/MyOrders";
 import Review from "../Private/Review/Review";
 import MakeAdmin from "../Private/Admin/MakeAdmin/MakeAdmin";
+import AddProduct from "../Private/Admin/AddProduct/AddProduct";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import { CardActionArea, CardActions } from "@mui/material";
+import "./Dashboard.css";
 
 const drawerWidth = 240;
 const Dashboard = (props) => {
-  const { logOut, admin } = useAuth();
+  const { logOut, admin, user } = useAuth();
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -122,95 +128,117 @@ const Dashboard = (props) => {
     window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: "flex" }}>
-      <CssBaseline />
+    <>
+      <Navigation></Navigation>
 
-      <AppBar
-        position="fixed"
-        sx={{
-          width: { sm: `calc(100% - ${drawerWidth}px)` },
-          ml: { sm: `${drawerWidth}px` },
-        }}
-      >
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: "none" } }}
+      <Box sx={{}}>
+        <CssBaseline />
+
+        <AppBar
+          position=""
+          sx={{
+            backgroundColor: "#5569FF",
+            width: { sm: `calc(100% - ${drawerWidth}px)` },
+            ml: { sm: `${drawerWidth}px` },
+          }}
+        >
+          <Toolbar>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="start"
+              onClick={handleDrawerToggle}
+              sx={{ mr: 2, display: { sm: "none" } }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h6" noWrap component="div">
+              Dashboard
+            </Typography>
+          </Toolbar>
+        </AppBar>
+
+        <Box
+          component="nav"
+          sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
+          aria-label="mailbox folders"
+        >
+          {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
+          <Drawer
+            container={container}
+            variant="temporary"
+            open={mobileOpen}
+            onClose={handleDrawerToggle}
+            ModalProps={{
+              keepMounted: true, // Better open performance on mobile.
+            }}
+            sx={{
+              display: { xs: "block", sm: "none" },
+              "& .MuiDrawer-paper": {
+                boxSizing: "border-box",
+                width: drawerWidth,
+              },
+            }}
           >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            Dashboard
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <Box
-        component="nav"
-        sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
-        aria-label="mailbox folders"
-      >
-        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-        <Drawer
-          container={container}
-          variant="temporary"
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
-          }}
+            {drawer}
+          </Drawer>
+          <Drawer
+            variant="permanent"
+            sx={{
+              display: { xs: "none", sm: "block" },
+              "& .MuiDrawer-paper": {
+                boxSizing: "border-box",
+                width: drawerWidth,
+              },
+            }}
+            open
+          >
+            {drawer}
+          </Drawer>
+        </Box>
+
+        <Grid container spacing={2}>
+          <Grid item xs={12} md={12}>
+            <Typography sx={{ mt: 1 }} variant="h4">
+              Welcome, {user.displayName}!
+            </Typography>
+            <Typography variant="bodypara">
+              Have a look at your dashboard.
+            </Typography>
+          </Grid>
+          <Grid item xs={12} md={4}></Grid>
+        </Grid>
+
+        <Box
+          component="main"
           sx={{
-            display: { xs: "block", sm: "none" },
-            "& .MuiDrawer-paper": {
-              boxSizing: "border-box",
-              width: drawerWidth,
-            },
+            flexGrow: 1,
+            p: 3,
+            width: { sm: `calc(100% - ${drawerWidth}px)` },
           }}
         >
-          {drawer}
-        </Drawer>
-        <Drawer
-          variant="permanent"
-          sx={{
-            display: { xs: "none", sm: "block" },
-            "& .MuiDrawer-paper": {
-              boxSizing: "border-box",
-              width: drawerWidth,
-            },
-          }}
-          open
-        >
-          {drawer}
-        </Drawer>
+          <Toolbar />
+          <Switch>
+            <Route exact path={path}></Route>
+            <Route path={`${path}/pay`}>
+              <Pay></Pay>
+            </Route>
+            <Route path={`${path}/myOrders`}>
+              <MyOrders></MyOrders>
+            </Route>
+            <Route path={`${path}/review`}>
+              <Review></Review>
+            </Route>
+            <Route path={`${path}/makeAdmin`}>
+              <MakeAdmin></MakeAdmin>
+            </Route>
+            <Route path={`${path}/addProduct`}>
+              <AddProduct></AddProduct>
+            </Route>
+          </Switch>
+        </Box>
       </Box>
-      <Box
-        component="main"
-        sx={{
-          flexGrow: 1,
-          p: 3,
-          width: { sm: `calc(100% - ${drawerWidth}px)` },
-        }}
-      >
-        <Toolbar />
-        <Switch>
-          <Route exact path={path}></Route>
-          <Route path={`${path}/pay`}>
-            <Pay></Pay>
-          </Route>
-          <Route path={`${path}/myOrders`}>
-            <MyOrders></MyOrders>
-          </Route>
-          <Route path={`${path}/review`}>
-            <Review></Review>
-          </Route>
-          <Route path={`${path}/makeAdmin`}>
-            <MakeAdmin></MakeAdmin>
-          </Route>
-        </Switch>
-      </Box>
-    </Box>
+    </>
   );
 };
 

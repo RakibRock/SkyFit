@@ -1,50 +1,54 @@
-import { Button, Grid, Typography } from "@mui/material";
+import { Button, Container, Grid, Typography } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
-import css from "./HeroSection.css";
+import "./HeroSection.css";
+import drone from "../../../images/Drone race-bro.png";
 
 const HeroSection = () => {
   return (
-    <div className="bgImage">
-      <Grid
-        sx={{
-          color: "white",
-        }}
-        container
-        spacing={2}
-      >
+    <Container className="bgImage">
+      <Grid container spacing={2}>
         <Grid
-          className="textBg"
           sx={{
             textAlign: "left",
             margin: "50px",
           }}
           item
-          xs={8}
-          md={5}
+          xs={12}
+          md={4}
         >
-          <Typography sx={{ mb: 2 }} variant="h6">
-            AERIAL PHOTOGRAPHY
+          <Typography
+            sx={{ mb: 2, pt: 3, fontFamily: "Segoe UI", fontWeight: "400" }}
+            variant="h5"
+          >
+            Welcome to SkyFit's drone store
           </Typography>
 
-          <Typography sx={{ mb: 2 }} variant="h4">
-            There Are Many Great Ways
-            <br /> To Use Drones. <br />
+          <Typography
+            sx={{ mb: 2, fontFamily: "Segoe UI", fontWeight: "bold" }}
+            variant="h4"
+            className=""
+          >
+            Browse through our unique collection of drones
           </Typography>
-          <Typography variant="parabody">
+          <Typography
+            sx={{ fontFamily: "Segoe UI", fontSize: "18px" }}
+            variant="parabody"
+          >
             {" "}
             We provide high quality drones with top notch battery life.
           </Typography>
-
-          <Link to="/explore">
-            <Button sx={{ mt: 1 }} variant="contained">
-              View Drones
-            </Button>
+          <br />
+          <br />
+          <Link className="button" to="/explore">
+            <Button sx={{ color: "white" }}>View Drones</Button>
           </Link>
         </Grid>
-        <Grid item xs={4} md={6}></Grid>
+        <Grid item xs={12} md={6}>
+          <img className="droneImage" src={drone} alt="" />
+        </Grid>
       </Grid>
-    </div>
+    </Container>
   );
 };
 

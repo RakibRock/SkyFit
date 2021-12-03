@@ -17,7 +17,7 @@ const Reviews = () => {
     <Container sx={{ padding: "20px 0 200px 0" }}>
       <Grid container spacing={2}>
         <Grid item xs={12} md={12}>
-          <Typography sx={{ padding: "50px" }} variant="h4">
+          <Typography sx={{ padding: "50px", color: "#900c3e" }} variant="h4">
             What Our Customers Say
           </Typography>
         </Grid>

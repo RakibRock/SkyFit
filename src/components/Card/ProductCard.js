@@ -15,19 +15,26 @@ const ProductCard = (props) => {
     <Grid item xs={12} md={4}>
       <Card
         sx={{
-          height: "550px",
-          border: "1px solid #30BCED",
+          height: "540px",
+          border: "3px solid #900c3e",
           borderRadius: "7px",
         }}
       >
         <CardActionArea>
           <CardMedia
+            sx={{ width: "80%", m: "auto" }}
             component="img"
-            height="300"
+            height="270"
             image={image}
             alt="products images"
           />
-          <CardContent>
+          <CardContent
+            sx={{
+              color: "#900c3e",
+              fontWeight: "bold",
+              fontSize: "40px",
+            }}
+          >
             <Typography gutterBottom variant="h5">
               {name}
             </Typography>
@@ -40,8 +47,10 @@ const ProductCard = (props) => {
           </CardContent>
         </CardActionArea>
 
-        <Link className="purchase" to={`/purchase/${_id}`}>
-          <Button>Purchase</Button>
+        <Link className="button" to={`/purchase/${_id}`}>
+          <Button sx={{ color: "white", fontSize: "17px" }} className="">
+            Purchase
+          </Button>
         </Link>
         {/* <Purchase _id={_id}></Purchase> */}
       </Card>

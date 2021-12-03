@@ -8,7 +8,7 @@ const Footer = () => {
     <div className="footer">
       <Grid container spacing={2}>
         <Grid item xs={12} md={4}>
-          <Typography sx={{ color: "#30BCED" }} variant="h3">
+          <Typography sx={{ color: "#900c3e" }} variant="h3">
             SkyFit
           </Typography>
           <br />

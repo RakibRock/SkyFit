@@ -25,7 +25,7 @@ const ReviewCard = ({ userReview }) => {
           sx={{
             minWidth: 320,
             m: 1,
-            backgroundColor: "#30BCED",
+            backgroundColor: "#900c3e",
             color: "white",
           }}
         >
