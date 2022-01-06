@@ -58,48 +58,6 @@ const MyOrders = (props) => {
       });
   };
 
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
-
-  const drawer = (
-    <div>
-      <Toolbar />
-      <Divider />
-      <Link to="/dashboard">
-        <Button>Dashboard</Button>
-      </Link>
-      <Divider />
-      <Link to="/pay">
-        <Button>Pay</Button>
-      </Link>
-      <Divider />
-
-      <Link to="/myOrders">
-        <Button>My Orders</Button>
-      </Link>
-      <Divider />
-      <Link to="/review">
-        <Button>Review</Button>
-      </Link>
-      <Divider />
-
-      <Link to="/">
-        <Button
-          sx={{ m: 3 }}
-          onClick={logOut}
-          color="inherit"
-          variant="outlined"
-        >
-          Log Out
-        </Button>
-      </Link>
-    </div>
-  );
-
-  const container =
-    window !== undefined ? () => window().document.body : undefined;
-
   return (
     <Box>
       <Toolbar />

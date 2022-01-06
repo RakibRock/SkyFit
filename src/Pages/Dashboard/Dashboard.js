@@ -37,7 +37,7 @@ import CardMedia from "@mui/material/CardMedia";
 import { CardActionArea, CardActions } from "@mui/material";
 import "./Dashboard.css";
 
-const drawerWidth = 240;
+const drawerWidth = 170;
 const Dashboard = (props) => {
   const { logOut, admin, user } = useAuth();
   const { window } = props;
@@ -54,7 +54,7 @@ const Dashboard = (props) => {
       <Toolbar />
       <Divider />
       <Link to="/home">
-        <Button>Back To Home</Button>
+        <Button className="dashBtn">Back To Home</Button>
       </Link>
       <Divider />
 
@@ -129,15 +129,13 @@ const Dashboard = (props) => {
 
   return (
     <>
-      <Navigation></Navigation>
-
       <Box sx={{}}>
         <CssBaseline />
 
         <AppBar
           position=""
           sx={{
-            backgroundColor: "#5569FF",
+            backgroundColor: "",
             width: { sm: `calc(100% - ${drawerWidth}px)` },
             ml: { sm: `${drawerWidth}px` },
           }}
@@ -196,18 +194,6 @@ const Dashboard = (props) => {
             {drawer}
           </Drawer>
         </Box>
-
-        <Grid container spacing={2}>
-          <Grid item xs={12} md={12}>
-            <Typography sx={{ mt: 1 }} variant="h4">
-              Welcome, {user.displayName}!
-            </Typography>
-            <Typography variant="bodypara">
-              Have a look at your dashboard.
-            </Typography>
-          </Grid>
-          <Grid item xs={12} md={4}></Grid>
-        </Grid>
 
         <Box
           component="main"

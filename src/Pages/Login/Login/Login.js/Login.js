@@ -11,9 +11,11 @@ import {
 import { useState } from "react";
 import { Link, useLocation, useHistory } from "react-router-dom";
 import useAuth from "../../../../hooks/useAuth";
-// import login from "../../../images/login.png";
+import loginImage from "../../../../images/Mobile login-rafiki.png";
+import useStyle from "../../../../hooks/useStyle";
 
 const Login = () => {
+  const classes = useStyle();
   const { user, loginUser, isLoading, signInWithGoogle, authError } = useAuth();
 
   const location = useLocation();
@@ -48,8 +50,11 @@ const Login = () => {
   return (
     <Container>
       <Grid container spacing={2}>
-        <Grid item sx={{ mt: 8 }} xs={12} md={6}>
-          <Typography variant="body1" gutterBottom>
+        <Grid item sx={{ p: 1, mt: 3 }} xs={12} md={6}>
+          <img width="550px" src={loginImage} alt="" />
+        </Grid>
+        <Grid item sx={{ p: 3, mt: 14 }} xs={12} md={6}>
+          <Typography variant="h5" gutterBottom>
             Login
           </Typography>
           {!isLoading && (
@@ -73,16 +78,14 @@ const Login = () => {
                 type="password"
               ></TextField>
 
-              <Button
-                type="submit"
-                sx={{ width: "75%", mt: 3 }}
-                variant="contained"
-              >
+              <Button type="submit" className={classes.btn} variant="contained">
                 Log In
               </Button>
 
               <Link to="/register" style={{ textDecoration: "none" }}>
-                <Button variant="text">NEW USER? PLEASE REGISTER</Button>
+                <Button sx={{ color: "#900c3e" }} variant="text">
+                  NEW USER? PLEASE REGISTER
+                </Button>
               </Link>
             </form>
           )}
@@ -97,7 +100,6 @@ const Login = () => {
             Google Sign In
           </Button> */}
         </Grid>
-        <Grid item xs={12} md={6}></Grid>
       </Grid>
     </Container>
   );

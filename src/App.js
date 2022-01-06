@@ -11,6 +11,16 @@ import AuthProvider from "./context/AuthProvider/AuthProvider";
 import Pay from "./Pages/Private/Pay/Pay";
 import MyOrders from "./Pages/Private/MyOrders/MyOrders";
 import Review from "./Pages/Private/Review/Review";
+import { makeStyles } from "@material-ui/core";
+
+const useStyle = makeStyles({
+  btn: {
+    width: "75%",
+    mt: 3,
+    backgroundColor: "#900c3e",
+    fontWeight: "500",
+  },
+});
 
 function App() {
   return (

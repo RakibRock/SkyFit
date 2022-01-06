@@ -11,8 +11,11 @@ import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 // import login from "../../../images/login.png";
 import useAuth from "../../../hooks/useAuth";
+import useStyle from "../../../hooks/useStyle";
+import imageRegister from "../../../images/Mobile login-rafiki.png";
 
 const Registration = () => {
+  const classes = useStyle();
   const { user, registerUser, isLoading, authError } = useAuth();
 
   const [loginData, setLoginData] = useState({});
@@ -41,7 +44,10 @@ const Registration = () => {
   return (
     <Container>
       <Grid container spacing={2}>
-        <Grid item sx={{}} xs={12} md={6}>
+        <Grid item sx={{ p: 1, mt: 3 }} xs={12} md={6}>
+          <img width="550px" src={imageRegister} alt="" />
+        </Grid>
+        <Grid item sx={{ p: 3, mt: 14 }} xs={12} md={6}>
           <Typography variant="body1" gutterBottom>
             Register
           </Typography>
@@ -86,11 +92,7 @@ const Registration = () => {
                 type="password"
               ></TextField>
 
-              <Button
-                type="submit"
-                sx={{ width: "75%", mt: 3 }}
-                variant="contained"
-              >
+              <Button type="submit" className={classes.btn} variant="contained">
                 Register
               </Button>
 
