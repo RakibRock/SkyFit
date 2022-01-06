@@ -49,29 +49,36 @@ const Dashboard = (props) => {
     setMobileOpen(!mobileOpen);
   };
 
+  const drawerStyle = {
+    color: "#900c3e",
+    fontWeight: "bold",
+  };
+
   const drawer = (
     <div>
       <Toolbar />
       <Divider />
       <Link to="/home">
-        <Button className="dashBtn">Back To Home</Button>
+        <Button className="dashBtn" style={drawerStyle}>
+          Back To Home
+        </Button>
       </Link>
       <Divider />
 
       {!admin && (
         <Box>
           <Link to={`${url}/pay`}>
-            <Button>Pay</Button>
+            <Button style={drawerStyle}>Pay</Button>
           </Link>
           <Divider />
 
           <Link to={`${url}/myOrders`}>
-            <Button>My Orders</Button>
+            <Button style={drawerStyle}>My Orders</Button>
           </Link>
           <Divider />
 
           <Link to={`${url}/review`}>
-            <Button>Review</Button>
+            <Button style={drawerStyle}>Review</Button>
           </Link>
         </Box>
       )}
@@ -117,6 +124,7 @@ const Dashboard = (props) => {
           onClick={logOut}
           color="inherit"
           variant="outlined"
+          style={drawerStyle}
         >
           Log Out
         </Button>
@@ -135,7 +143,7 @@ const Dashboard = (props) => {
         <AppBar
           position=""
           sx={{
-            backgroundColor: "",
+            backgroundColor: "#900c3e",
             width: { sm: `calc(100% - ${drawerWidth}px)` },
             ml: { sm: `${drawerWidth}px` },
           }}
@@ -201,7 +209,7 @@ const Dashboard = (props) => {
             flexGrow: 1,
             p: 3,
             mt: 0,
-            ml: "10rem",
+            ml: "5rem",
             width: { sm: `calc(100% - ${drawerWidth}px)` },
           }}
         >

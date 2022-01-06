@@ -9,6 +9,9 @@ div > a {
 .dashBtn {
   color: black;
 }
-.css-f7yibp-MuiGrid-root {
-  margin-left: 25rem;
+
+@media only screen and (min-width: 425px) {
+  .css-1w7uhy5 {
+    margin-left: 0;
+  }
 }
