@@ -63,6 +63,15 @@ const Review = (props) => {
   //     body: JSON.stringify(),
   //   });
   // }, []);
+  const reviewStyle = {
+    color: "#900c3e",
+    fontWeight: "bold",
+    backgroundColor: "white",
+  };
+
+  const styleTextField = {
+    width: "100%",
+  };
 
   return (
     <Box>
@@ -79,9 +88,12 @@ const Review = (props) => {
               multiline
               rows={4}
               defaultValue=""
+              style={styleTextField}
             />{" "}
             <br />
-            <Button type="submit">Submit</Button>
+            <Button type="submit" style={reviewStyle}>
+              Submit
+            </Button>
           </form>
         </Grid>
       </Grid>

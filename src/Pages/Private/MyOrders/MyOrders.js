@@ -57,6 +57,11 @@ const MyOrders = (props) => {
         }
       });
   };
+  const orderStyle = {
+    color: "#900c3e",
+    fontWeight: "bold",
+    backgroundColor: "white",
+  };
 
   return (
     <Box>
@@ -86,6 +91,7 @@ const MyOrders = (props) => {
                     <Button
                       onClick={() => handleDelete(order._id)}
                       variant="contained"
+                      style={orderStyle}
                     >
                       Cancel
                     </Button>

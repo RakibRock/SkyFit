@@ -209,7 +209,7 @@ const Dashboard = (props) => {
             flexGrow: 1,
             p: 3,
             mt: 0,
-            ml: "5rem",
+            ml: "10rem",
             width: { sm: `calc(100% - ${drawerWidth}px)` },
           }}
         >
