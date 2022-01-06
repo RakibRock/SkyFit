@@ -25,11 +25,16 @@ const HeroSection = () => {
           </Typography>
 
           <Typography
-            sx={{ mb: 2, fontFamily: "Segoe UI", fontWeight: "bold" }}
-            variant="h4"
+            sx={{
+              mb: 2,
+              fontFamily: "Segoe UI",
+              fontWeight: "bold",
+              fontSize: "4rem",
+            }}
+            variant="h2"
             className=""
           >
-            Browse through our unique collection of drones
+            Fly Above and Beyond.
           </Typography>
           <Typography
             sx={{ fontFamily: "Segoe UI", fontSize: "18px" }}

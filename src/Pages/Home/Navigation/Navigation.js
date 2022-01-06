@@ -14,7 +14,7 @@ import Menu from "@mui/material/Menu";
 import css from "./Navigation.css";
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
-import { Button, Container } from "@mui/material";
+import { Button, Container as div } from "@mui/material";
 
 const Navigation = () => {
   const [auth, setAuth] = React.useState(true);
@@ -34,7 +34,7 @@ const Navigation = () => {
     setAnchorEl(null);
   };
   return (
-    <Container>
+    <div>
       <Box sx={{ flexGrow: 1, textAlign: "left" }}>
         <AppBar
           sx={{ bgcolor: "#900c3e", borderRadius: "5px" }}
@@ -131,7 +131,7 @@ const Navigation = () => {
           </Toolbar>
         </AppBar>
       </Box>
-    </Container>
+    </div>
   );
 };
 
